@@ -3,36 +3,74 @@ const screen = document.getElementById("screen");
 let girlfriendName = "";
 
 const photos = [
-"images/photo1.jpg",
-"images/photo2.jpg",
-"images/photo3.jpg",
-"images/photo4.jpg"
+  "images/photo1.jpg",
+  "images/photo2.jpg",
+  "images/photo3.jpg",
+  "images/photo4.jpg",
 ];
+
+function getProgress(percent) {
+  return `
+    <div class="progress">
+      <div class="progress-fill" style="width:${percent}%"></div>
+    </div>
+  `;
+}
 
 let photoIndex = 0;
 
 start();
 
-function start(){
+setInterval(() => {
+  const heart = document.createElement("div");
 
-screen.innerHTML = `
-<div class="card">
-<h1>❤️ Hi Beautiful ❤️</h1>
+  heart.className = "floating-heart";
+  heart.innerHTML = ["❤️", "💖", "💕", "💗"][Math.floor(Math.random() * 4)];
 
-<p>
-I made something for you...
-</p>
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = 20 + Math.random() * 20 + "px";
 
-<button onclick="nameScreen()">
-Open
-</button>
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
+}, 800);
+
+function start() {
+  screen.innerHTML = `
+
+<div class="card hero-card">
+
+    <div class="hero-heart">
+        ❤️
+    </div>
+
+    <h1>
+        For My Harshu ❤️
+    </h1>
+
+    <p class="hero-text">
+    I know you're upset with me.
+
+Before you decide my punishment,
+please give me just 2 minutes.
+
+I made this only for you 🥺❤️
+
+        
+    </p>
+
+    <button onclick="nameScreen()">
+        Open My Heart ❤️
+    </button>
+
 </div>
 `;
 }
 
-function nameScreen(){
-
-screen.innerHTML = `
+function nameScreen() {
+  screen.innerHTML = `
 <div class="card">
 
 <h2>What's your name?</h2>
@@ -47,18 +85,17 @@ Continue
 `;
 }
 
-function saveName(){
+function saveName() {
+  girlfriendName = document.getElementById("nameInput").value || "Beautiful";
 
-girlfriendName =
-document.getElementById("nameInput").value || "Beautiful";
-
-question1();
+  question1();
 }
 
-function question1(){
-
-screen.innerHTML = `
+function question1() {
+  screen.innerHTML = `
 <div class="card">
+
+${getProgress(10)}
 
 <h2>Hi ${girlfriendName} ❤️</h2>
 
@@ -78,10 +115,11 @@ Volcano Level 🌋
 `;
 }
 
-function tinyAngry(){
-
-screen.innerHTML = `
+function tinyAngry() {
+  screen.innerHTML = `
 <div class="card">
+
+${getProgress(20)}
 
 <h2>That's good 😌</h2>
 
@@ -101,9 +139,8 @@ Not Really ❤️
 `;
 }
 
-function veryAngry(){
-
-screen.innerHTML = `
+function veryAngry() {
+  screen.innerHTML = `
 <div class="card">
 
 <h2>Uh Oh 😅</h2>
@@ -124,9 +161,8 @@ Give Hugs
 `;
 }
 
-function veryPath2(){
-
-screen.innerHTML = `
+function veryPath2() {
+  screen.innerHTML = `
 <div class="card">
 
 <h2>Fair Enough 🥺</h2>
@@ -147,9 +183,8 @@ Very Yes
 `;
 }
 
-function volcanoAngry(){
-
-screen.innerHTML = `
+function volcanoAngry() {
+  screen.innerHTML = `
 <div class="card">
 
 <h2>🚨 Emergency Mode Activated 🚨</h2>
@@ -167,9 +202,8 @@ Continue
 `;
 }
 
-function volcanoStep2(){
-
-screen.innerHTML = `
+function volcanoStep2() {
+  screen.innerHTML = `
 <div class="card">
 
 <h2>Question 😭</h2>
@@ -190,9 +224,8 @@ Definitely
 `;
 }
 
-function volcanoStep3(){
-
-screen.innerHTML = `
+function volcanoStep3() {
+  screen.innerHTML = `
 <div class="card">
 
 <h2>Last Question 😭</h2>
@@ -213,10 +246,11 @@ Only If I Forgive Him
 `;
 }
 
-function loveQuestion(){
-
-screen.innerHTML = `
+function loveQuestion() {
+  screen.innerHTML = `
 <div class="card">
+
+${getProgress(40)}
 
 <h2>One Important Question 😌</h2>
 
@@ -236,10 +270,11 @@ Obviously ❤️❤️
 `;
 }
 
-function cuteQuestion(){
-
-screen.innerHTML = `
+function cuteQuestion() {
+  screen.innerHTML = `
 <div class="card">
+
+${getProgress(50)}
 
 <h2>Another Question 😏</h2>
 
@@ -259,10 +294,11 @@ Definitely Sidd 😒
 `;
 }
 
-function cuteQuestion2(){
-
-screen.innerHTML = `
+function cuteQuestion2() {
+  screen.innerHTML = `
 <div class="card">
+
+${getProgress(60)}
 
 <h2>And Yet... ❤️</h2>
 
@@ -282,10 +318,11 @@ He's My Favorite Idiot ❤️
 `;
 }
 
-function cuteQuestion3(){
-
-screen.innerHTML = `
+function cuteQuestion3() {
+  screen.innerHTML = `
 <div class="card">
+
+${getProgress(70)}
 
 <h2>Final Check 🥺</h2>
 
@@ -305,10 +342,11 @@ Absolutely ❤️
 `;
 }
 
-function moodScreen(){
-
-screen.innerHTML = `
+function moodScreen() {
+  screen.innerHTML = `
 <div class="card">
+
+${getProgress(80)}
 
 <h2>How are you feeling?</h2>
 
@@ -328,10 +366,11 @@ Continue
 `;
 }
 
-function showSlideshow(){
-
-screen.innerHTML = `
+function showSlideshow() {
+  screen.innerHTML = `
 <div class="card">
+
+${getProgress(90)}
 
 <h2>Awww nanna cutu 😘</h2>
 
@@ -352,28 +391,20 @@ Continue ❤️
 `;
 }
 
-function nextPhoto(){
+function nextPhoto() {
+  photoIndex = (photoIndex + 1) % photos.length;
 
-photoIndex =
-(photoIndex + 1) % photos.length;
-
-document.getElementById("slide").src =
-photos[photoIndex];
+  document.getElementById("slide").src = photos[photoIndex];
 }
 
-function prevPhoto(){
+function prevPhoto() {
+  photoIndex = (photoIndex - 1 + photos.length) % photos.length;
 
-photoIndex =
-(photoIndex - 1 + photos.length) %
-photos.length;
-
-document.getElementById("slide").src =
-photos[photoIndex];
+  document.getElementById("slide").src = photos[photoIndex];
 }
 
-function loveSection(){
-
-screen.innerHTML = `
+function loveSection() {
+  screen.innerHTML = `
 <div class="card">
 
 <h2>3 Things I Love About You ❤️</h2>
@@ -392,9 +423,8 @@ Next
 `;
 }
 
-function sorrySection(){
-
-screen.innerHTML = `
+function sorrySection() {
+  screen.innerHTML = `
 <div class="card">
 
 <h2>3 Things I'm Sorry For 😔</h2>
@@ -413,9 +443,8 @@ Next
 `;
 }
 
-function promiseSection(){
-
-screen.innerHTML = `
+function promiseSection() {
+  screen.innerHTML = `
 <div class="card">
 
 <h2>3 Promises I'll Keep 🌹</h2>
@@ -434,98 +463,114 @@ Continue
 `;
 }
 
-function forgivePage(){
+function forgivePage() {
+  screen.innerHTML = `
+<div class="card forgive-card">
 
-screen.innerHTML = `
-<div class="card">
+${getProgress(100)}
 
-<h2>Will You Forgive Sidd? 🥺</h2>
+    <h2>Will You Forgive Sidd? 🥺</h2>
 
-<button onclick="celebrate()">
-Yes ❤️
-</button>
+    <div id="buttonArea">
 
-<button id="noBtn">
-No 😏
-</button>
+        <button onclick="celebrate()">
+            Yes ❤️
+        </button>
+
+        <button id="noBtn">
+            No 😏
+        </button>
+
+    </div>
 
 </div>
 `;
 
-const noBtn =
-document.getElementById("noBtn");
+  const noBtn = document.getElementById("noBtn");
+  const area = document.getElementById("buttonArea");
 
-noBtn.addEventListener("mouseover",()=>{
+  function moveButton() {
+    const maxX = area.clientWidth - noBtn.offsetWidth;
 
-const x =
-Math.random() * (window.innerWidth - 150);
+    const maxY = area.clientHeight - noBtn.offsetHeight;
 
-const y =
-Math.random() * (window.innerHeight - 100);
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
 
-noBtn.style.left = x + "px";
-noBtn.style.top = y + "px";
-});
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+  }
+
+  noBtn.addEventListener("mouseenter", moveButton);
+
+  noBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    moveButton();
+  });
+
+  noBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    moveButton();
+  });
 }
 
-function celebrate(){
+function celebrate() {
+  launchConfetti();
 
-launchConfetti();
-
-screen.innerHTML = `
+  screen.innerHTML = `
 <div class="card">
 
 <h1>🎉 Thank You ${girlfriendName} 🎉</h1>
 
+<h2>
+❤️ I Love You ❤️
+</h2>
+
 <p>
-
-You are incredibly important to me.
-
 Thank you for being patient with me.
-
-I love you ❤️
-
+Thank you for staying.
+Thank you for loving me.
 </p>
 
-<h2>Forever Yours ❤️</h2>
+<p>
+I know I can do better.
+And I promise I will.
+</p>
+
+<h3>
+Forever Yours,
+Sidd ❤️
+</h3>
 
 </div>
 `;
 }
 
-function launchConfetti(){
+function launchConfetti() {
+  confetti({
+    particleCount: 200,
+    spread: 180,
+  });
 
-confetti({
-particleCount:200,
-spread:180
-});
-
-for(let i=0;i<50;i++){
-
-setTimeout(createHeart,i*200);
-}
+  for (let i = 0; i < 50; i++) {
+    setTimeout(createHeart, i * 200);
+  }
 }
 
-function createHeart(){
+function createHeart() {
+  const heart = document.createElement("div");
 
-const heart =
-document.createElement("div");
+  heart.classList.add("heart");
 
-heart.classList.add("heart");
+  heart.innerHTML = "❤️";
 
-heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
 
-heart.style.left =
-Math.random()*100 + "vw";
+  heart.style.animationDuration = 3 + Math.random() * 4 + "s";
 
-heart.style.animationDuration =
-3 + Math.random()*4 + "s";
+  document.body.appendChild(heart);
 
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},7000);
+  setTimeout(() => {
+    heart.remove();
+  }, 7000);
 }

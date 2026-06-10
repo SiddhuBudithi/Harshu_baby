@@ -1,127 +1,342 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-font-family:Arial, sans-serif;
-background:linear-gradient(135deg,#ffdde1,#ee9ca7);
-height:100vh;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-.container{
-width:100%;
-max-width:600px;
+/* .container {
+  width: 100%;
+  max-width: 800px;
+  padding: 15px;
+} */
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 20px;
 }
 
-.card{
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 40px rgba(0,0,0,.15);
-text-align:center;
-animation:fade .5s ease;
+.card {
+  position: relative;
+  z-index: 10;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+
+  width: 100%;
+  max-width: 900px;
+
+  padding: 50px;
+
+  border-radius: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 0 40px rgba(255, 105, 180, 0.15);
+
+  animation: cardEntrance 0.8s ease;
 }
 
-h1,h2{
-color:#ff4f87;
-margin-bottom:20px;
+h1,
+h2 {
+  color: #ff4f87;
+  margin-bottom: 20px;
 }
 
-p{
-margin:10px 0;
-line-height:1.6;
+p {
+  margin: 10px 0;
+  line-height: 1.6;
 }
 
-button{
-padding:12px 24px;
-margin:10px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-size:16px;
-background:#ff4f87;
-color:white;
-transition:.3s;
+button {
+  padding: 12px 24px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  background: #ff4f87;
+  color: white;
+  transition: 0.3s;
 }
 
-button:hover{
-transform:scale(1.05);
+button:hover {
+  transform: scale(1.05);
 }
 
-input{
-padding:12px;
-width:100%;
-margin:20px 0;
-border-radius:10px;
-border:1px solid #ddd;
+input {
+  padding: 12px;
+  width: 100%;
+  margin: 20px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
 }
 
-img{
-width:100%;
-max-height:350px;
-object-fit:cover;
-border-radius:15px;
+img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  margin: auto;
 }
 
-ul{
-text-align:left;
-margin-top:15px;
+ul {
+  text-align: left;
+  margin-top: 15px;
 }
 
-li{
-margin:10px 0;
+li {
+  margin: 10px 0;
 }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-.heart{
-position:fixed;
-bottom:-20px;
-font-size:24px;
-animation:floatUp linear forwards;
-pointer-events:none;
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes floatUp{
-to{
-transform:translateY(-110vh);
-opacity:0;
-}
-}
-
-#noBtn{
-position:absolute;
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: floatUp linear forwards;
+  pointer-events: none;
 }
 
-.slider{
-width:100%;
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
 }
 
-@media(max-width:600px){
-
-.card{
-padding:20px;
+#noBtn {
+  position: absolute;
 }
 
-button{
-width:100%;
-margin-top:12px;
+.slider {
+  width: 100%;
 }
 
+@media (max-width: 600px) {
+  .card {
+    padding: 20px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 12px;
+  }
+}
+
+.forgive-card {
+  position: relative;
+}
+
+#buttonArea {
+  position: relative;
+  height: 220px;
+  margin-top: 20px;
+}
+
+#noBtn {
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 24px;
+    border-radius: 18px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  img {
+    max-height: 240px;
+  }
+
+  #buttonArea {
+    height: 250px;
+  }
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+
+  background:
+    radial-gradient(circle at top left, #ffd6e7, #ff9bbd),
+    radial-gradient(circle at bottom right, #ffcce0, #ff7cab);
+
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: fixed;
+  bottom: -50px;
+  animation: floatHeart 8s linear forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.progress-fill{
+  transition: width .6s ease;
+}
+
+.hero-card {
+  text-align: center;
+
+  min-height: 420px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-heart {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+.hero-text {
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+button {
+  background: linear-gradient(135deg, #ff5f9e, #ff3f86);
+
+  color: white;
+
+  font-weight: 600;
+
+  padding: 14px 28px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  transition: 0.3s;
+
+  box-shadow: 0 10px 25px rgba(255, 79, 135, 0.35);
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+
+  box-shadow: 0 15px 35px rgba(255, 79, 135, 0.45);
+}
+
+.progress {
+  height: 10px;
+  width: 100%;
+
+  background: #f1f1f1;
+
+  border-radius: 999px;
+
+  margin-bottom: 25px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  background: linear-gradient(90deg, #ff5f9e, #ff85b3);
+
+  border-radius: 999px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
